@@ -1,15 +1,15 @@
 # bd_loja_informatica
 
 CONSULTAS SQL — BANCO loja_db
-================================
+
 
 Este arquivo contém consultas SQL para o banco de dados loja_db,
 juntamente com a função de cada consulta.
 
 
-==================================================
+
 1. CONSULTAS BÁSICAS
-==================================================
+
 
 1.1 — Listar todos os clientes
 ------------------------------
@@ -71,9 +71,9 @@ FUNÇÃO:
 Mostra o nome e o preço de cada produto.
 
 
-==================================================
+
 2. FILTRANDO DADOS COM WHERE
-==================================================
+
 
 2.1 — Produtos com preço maior que R$ 200
 -----------------------------------------
@@ -131,9 +131,9 @@ FUNÇÃO:
 Mostra produtos cujo preço está entre R$ 200 e R$ 500.
 
 
-==================================================
+
 3. ORDENANDO RESULTADOS COM ORDER BY
-==================================================
+
 
 3.1 — Produtos do mais barato para o mais caro
 ----------------------------------------------
@@ -172,9 +172,9 @@ FUNÇÃO:
 Ordena os clientes alfabeticamente pelo nome.
 
 
-==================================================
+
 4. LIMIT
-==================================================
+
 
 4.1 — Os 3 produtos mais caros
 ------------------------------
@@ -200,9 +200,9 @@ FUNÇÃO:
 Mostra somente os 2 produtos mais baratos.
 
 
-==================================================
+
 5. INNER JOIN
-==================================================
+
 
 5.1 — Mostrar pedidos e seus clientes
 -------------------------------------
@@ -258,9 +258,9 @@ FUNÇÃO:
 Relaciona cliente, pedido e produto em uma única consulta.
 
 
-==================================================
+
 6. PEDIDOS DE CADA CLIENTE
-==================================================
+
 
 6.1 — Mostrar os pedidos de cada cliente
 ----------------------------------------
@@ -280,9 +280,9 @@ Mostra quais pedidos pertencem a cada cliente e
 ordena os pedidos do menor para o maior ID.
 
 
-==================================================
+
 7. PEDIDOS E PRODUTOS
-==================================================
+
 
 7.1 — Mostrar os produtos de cada pedido
 ----------------------------------------
@@ -350,9 +350,9 @@ Depois, dentro de cada pedido, coloca os produtos com
 maior quantidade comprada primeiro.
 
 
-==================================================
+
 8. FUNÇÕES DE AGREGAÇÃO
-==================================================
+
 
 8.1 — Contar clientes
 ---------------------
@@ -414,9 +414,9 @@ FUNÇÃO:
 Soma o valor de todos os pedidos.
 
 
-==================================================
+
 9. GROUP BY
-==================================================
+
 
 9.1 — Quanto cada cliente gastou
 --------------------------------
@@ -469,9 +469,9 @@ FUNÇÃO:
 Calcula quantas unidades de cada produto foram vendidas.
 
 
-==================================================
+
 10. HAVING
-==================================================
+
 
 10.1 — Clientes que gastaram mais de R$ 600
 -------------------------------------------
@@ -509,9 +509,9 @@ FUNÇÃO:
 Mostra produtos cuja quantidade total vendida seja maior que 1.
 
 
-==================================================
+
 11. CONSULTAS MAIS ESPECÍFICAS
-==================================================
+
 
 11.1 — Pedido mais caro
 -----------------------
@@ -575,9 +575,9 @@ FUNÇÃO:
 Mostra produtos que nunca apareceram em nenhum pedido.
 
 
-==================================================
+
 12. CÁLCULO DE SUBTOTAL
-==================================================
+
 
 12.1 — Calcular subtotal de cada item
 -------------------------------------
@@ -602,9 +602,9 @@ preco_unitario = 89.90
 2 × 89.90 = 179.80
 
 
-==================================================
+
 13. CONSULTA COMPLETA DE UM PEDIDO
-==================================================
+
 
 13.1 — Mostrar todos os detalhes do pedido 1
 --------------------------------------------
@@ -630,9 +630,9 @@ FUNÇÃO:
 Mostra todos os detalhes dos produtos pertencentes ao pedido 1.
 
 
-==================================================
+
 14. VALIDAR O VALOR DOS PEDIDOS
-==================================================
+
 
 14.1 — Comparar valor cadastrado e calculado
 --------------------------------------------
@@ -662,9 +662,9 @@ Essa consulta ajuda a encontrar erros ou inconsistências
 nos valores dos pedidos.
 
 
-==================================================
+
 15. CONSULTA GERAL DA LOJA
-==================================================
+
 
 15.1 — Cliente + pedido + produto + subtotal
 --------------------------------------------
@@ -691,9 +691,9 @@ Mostra uma visão geral das vendas:
 cliente, pedido, data, produto, quantidade, preço e subtotal.
 
 
-==================================================
+
 16. RESUMO DOS PRINCIPAIS COMANDOS
-==================================================
+
 
 SELECT
 Função:
@@ -787,9 +787,9 @@ Função:
 Cria um apelido para uma coluna ou expressão.
 
 
-==================================================
+
 17. ESTRUTURA DO BANCO
-==================================================
+
 
 cliente
    |
@@ -823,6 +823,5 @@ Isso cria uma relação N:N:
 pedido N:N produto
 
 
-==================================================
+
 FIM
-==================================================
