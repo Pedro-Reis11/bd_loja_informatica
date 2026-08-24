@@ -3,14 +3,14 @@ CREATE DATABASE loja_db;
 USE loja_db;
 
 CREATE TABLE cliente (
-    id_cliente INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     telefone VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE produto (
-    id_produto INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     descricao VARCHAR(255),
     preco DECIMAL(10,2) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE produto (
 );
 
 CREATE TABLE pedido (
-    id_pedido INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     data_pedido DATE NOT NULL,
     valor_total DECIMAL(10,2),
     id_cliente INT NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE pedido (
 );
 
 CREATE TABLE item_pedido (
-    id_item_pedido INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     id_pedido INT NOT NULL,
     id_produto INT NOT NULL,
     quantidade INT NOT NULL,
