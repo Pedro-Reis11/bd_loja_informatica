@@ -30,3 +30,34 @@ Content-Type: application/json
 
 ### Remover cliente
 DELETE http://localhost:3000/clientes/5
+
+### Listar Produtos
+GET http://localhost:3000/produtos
+
+### Buscar produtos por ID
+GET http://localhost:3000/produtos/1
+
+### Cadastrar produtos
+POST http://localhost:3000/produtos
+Content-Type: application/json
+
+{
+  "nome": "Acer Nitro",
+  "descricao": "Notebook gamer super top",
+  "preco": 5000.00,
+  "estoque": 10
+}
+
+### Atualizar produtos
+PUT http://localhost:3000/produtos/6
+Content-Type: application/json
+
+{
+  "nome": "Acer Nitro",
+  "descricao": "Notebook gamer super toptelefone,top mesmo",
+  "preco": 5000.00,
+  "estoque": 10
+}
+
+### Remover produto
+DELETE http://localhost:3000/produtos/6

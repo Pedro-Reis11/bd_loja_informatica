@@ -22,7 +22,7 @@ CREATE TABLE pedido (
     data_pedido DATE NOT NULL,
     valor_total DECIMAL(10,2),
     id_cliente INT NOT NULL,
-    FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
+    FOREIGN KEY (id_cliente) REFERENCES cliente(id) ON DELETE CASCADE
 );
 
 CREATE TABLE item_pedido (
@@ -32,8 +32,8 @@ CREATE TABLE item_pedido (
     quantidade INT NOT NULL,
     preco_unitario DECIMAL(10,2) NOT NULL,
 
-    FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido),
-    FOREIGN KEY (id_produto) REFERENCES produto(id_produto)
+    FOREIGN KEY (id_pedido) REFERENCES pedido(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_produto) REFERENCES produto(id) ON DELETE CASCADE
 );
 
 -- CLIENTES
