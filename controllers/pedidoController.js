@@ -57,26 +57,36 @@ export const buscarPedidoPorId = (req, res) => {
 export const cadastrarPedido = (req, res) => {
     const { valor_total, id_cliente, itens } = req.body;
 
+    if (valor_total === undefined || !id_cliente || !Array.isArray(itens) || itens.length === 0) {
+        return res.status(400).json({
+            msg_erro: 'Valor total, cliente e ao menos um item são obrigatórios'
+        });
+    }
+
+    const itensInvalidos = itens.some((item) => !item.id_produto || !item.quantidade || item.preco_unitario === undefined);
+
+    if (itensInvalidos) {
+        return res.status(400).json({
+            msg_erro: 'Todos os dados dos itens são obrigatórios'
+        });
+    }
+
     const queryPedido = `
         INSERT INTO pedido
         (data_pedido, valor_total, id_cliente)
         VALUES (CURDATE(), ?, ?)
     `;
 
-    bd.query(
-        queryPedido,
-        [valor_total, id_cliente],
-        (erro, resultado) => {
+    bd.beginTransaction((erro) => {
+        if (erro) return res.status(500).json({ msg_erro: erro.message });
 
+        bd.query(queryPedido, [valor_total, id_cliente], (erro, resultado) => {
             if (erro) {
-                return res.status(500).json({
-                    msg_erro: erro.message
-                });
+                return bd.rollback(() => res.status(500).json({ msg_erro: erro.message }));
             }
 
             const idPedido = resultado.insertId;
-
-            const valores = itens.map(item => [
+            const valores = itens.map((item) => [
                 item.quantidade,
                 item.preco_unitario,
                 idPedido,
@@ -90,20 +100,23 @@ export const cadastrarPedido = (req, res) => {
             `;
 
             bd.query(queryItens, [valores], (erro) => {
-
                 if (erro) {
-                    return res.status(500).json({
-                        msg_erro: erro.message
-                    });
+                    return bd.rollback(() => res.status(500).json({ msg_erro: erro.message }));
                 }
 
-                res.status(201).json({
-                    mensagem: 'Pedido criado com sucesso',
-                    id: idPedido
+                bd.commit((erro) => {
+                    if (erro) {
+                        return bd.rollback(() => res.status(500).json({ msg_erro: erro.message }));
+                    }
+
+                    res.status(201).json({
+                        mensagem: 'Pedido criado com sucesso',
+                        id: idPedido
+                    });
                 });
             });
-        }
-    );
+        });
+    });
 };
 
 export const atualizarPedido = (req,res)=>{
@@ -114,6 +127,12 @@ export const atualizarPedido = (req,res)=>{
         valor_total,
         id_cliente
     } = req.body;
+
+    if (!data_pedido || valor_total === undefined || !id_cliente) {
+        return res.status(400).json({
+            msg_erro: 'Todos os campos são obrigatórios'
+        });
+    }
 
     const query = `
     UPDATE pedido

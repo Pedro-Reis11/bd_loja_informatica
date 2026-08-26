@@ -30,7 +30,7 @@ export const buscarProdutoPorId = (req,res)=>{
 
         if(resultado.length === 0){
             return res.status(404).json({
-                msg_erro: `Ǹenhum cliente encontrado com id ${id}`
+                msg_erro: `Nenhum produto encontrado com ID ${id}`
             });
         }
 
@@ -46,8 +46,8 @@ export const cadastrarProduto = (req,res)=>{
         estoque
     } = req.body;
 
-    if(!nome||!descricao||!preco||!estoque){
-        return res.status(404).json({
+    if(!nome || !descricao || preco === undefined || estoque === undefined){
+        return res.status(400).json({
             msg_erro: 'Todos os campos são obrigatórios'
         })
     }
@@ -84,6 +84,12 @@ export const atualizarProduto = (req,res)=>{
         preco,
         estoque
     } = req.body;
+
+    if(!nome || !descricao || preco === undefined || estoque === undefined){
+        return res.status(400).json({
+            msg_erro: 'Todos os campos são obrigatórios'
+        });
+    }
 
     const query = `
     UPDATE produto
