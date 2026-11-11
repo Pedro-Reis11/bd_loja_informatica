@@ -1,0 +1,13 @@
+# Documentação (mantém README e AGENTS.md)
+*.md
+!README.md
+!readme.md
+!AGENTS.md
+
+# Dependências
+node_modules/
+**/node_modules/
+
+# Configuração de dev container
+.devcontainer/
+devcontainer/

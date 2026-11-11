@@ -9,7 +9,10 @@
   },
   "scripts": {
     "dev": "node --watch app.js",
-    "start": "node app.js"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
   },
   "repository": {
     "type": "git",
@@ -24,8 +27,20 @@
   "author": "Pedro Reis",
   "type": "module",
   "dependencies": {
+    "@react-native-picker/picker": "2.11.4",
     "cors": "^2.8.6",
+    "expo": "~57.0.17",
+    "expo-status-bar": "~57.0.1",
     "express": "^5.2.1",
-    "mysql2": "^3.23.3"
+    "mysql2": "^3.23.3",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-web": "^0.21.2"
+  },
+  "devDependencies": {
+    "@types/react": "~19.2.2",
+    "typescript": "~6.0.3"
   }
 }

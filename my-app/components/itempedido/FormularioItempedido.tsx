@@ -1,0 +1,1 @@
+import {Text,View} from 'react-native'; import {PropriedadesFormularioItempedido} from '../../interface/PropriedadesFormularioItempedido'; export default function FormularioItempedido(_p:PropriedadesFormularioItempedido){return <View><Text>CRUD indisponível: não existe rota própria para item_pedido.</Text></View>}

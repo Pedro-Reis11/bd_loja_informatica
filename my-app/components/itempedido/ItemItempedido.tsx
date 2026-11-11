@@ -1,0 +1,1 @@
+import {Text,View} from 'react-native'; import {PropriedadesItempedido} from '../../interface/PropriedadesItempedido'; export default function ItemItempedido(p:PropriedadesItempedido){return <View><Text>Pedido #{p.item.id_pedido} — {p.item.produto||'produto não resolvido'} — quantidade: {p.item.quantidade}</Text></View>}
